@@ -1,8 +1,7 @@
-# Ignore everything except published coursework folders
+﻿# Ignore everything except published coursework folders
 /*
 !/.gitignore
 !/README.md
-!/README.ru.md
 !/ToDoList/
 !/FlashCards/
 !/SimonsSays/
@@ -10,6 +9,7 @@
 !/Colors/
 !/Gallery/
 !/VideoAudio/
+!/NumericalMethods/
 
 # Keep nested junk out of published trees
 **/node_modules/

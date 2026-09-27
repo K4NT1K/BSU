@@ -1,0 +1,321 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     13732,        312]
+NotebookOptionsPosition[     10444,        267]
+NotebookOutlinePosition[     10795,        282]
+CellTagsIndexPosition[     10752,        279]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["\:0412\:0430\:0440\:0438\:0430\:043d\:0442 3;", "Input",ExpressionUUID->"da821033-b415-9842-b24a-b0372756914e"],
+
+Cell["\:0417\:0430\:0434\:0430\:043d\:0438\:0435 1", "Text",ExpressionUUID->"5f4ea908-a13d-fc47-a84c-1e6cda6d2e6d"],
+
+Cell["\<\
+1. \:0417\:0430\:0434\:0430\:0435\:043c \:043d\:0430\:0447\:0430\:043b\:044c\
+\:043d\:044b\:0435 \:0434\:0430\:043d\:043d\:044b\:0435;
+X = {0, Pi/6, Pi/4, Pi/3, Pi/2};
+f[x_] = Cos[x]^2;\
+\>", "Input",ExpressionUUID->"c23e4ea0-6c38-9c4a-be9e-33d0838d3415"],
+
+Cell["\<\
+2. \:0421\:0442\:0440\:043e\:0438\:043c \:0438\:043d\:0442\:0435\:0440\:043f\
+\:043e\:043b\:044f\:0446\:0438\:043e\:043d\:043d\:044b\:0439 \:043c\:043d\
+\:043e\:0433\:043e\:0447\:043b\:0435\:043d \:0432 \:0444\:043e\:0440\:043c\
+\:0435 \:041b\:0430\:0433\:0440\:0430\:043d\:0436\:0430;
+n = Length[X] - 1;
+Do[Subscript[x, i] = X[[i + 1]], {i, 0, n}];
+Do[Subscript[l, k][x_] = Product[(x - Subscript[x, i])/(Subscript[x, k] - \
+Subscript[x, i]), {i, 0, k - 1}]*Product[(x - Subscript[x, i])/(Subscript[x, \
+k] - Subscript[x, i]), {i, k + 1, n}], {k, 0, n}];
+P[x_] = Sum[Subscript[l, k][x]*f[Subscript[x, k]], {k, 0, n}] // Expand\
+\>", "Input",ExpressionUUID->"cf2edde8-c34b-f743-81f5-1529f7b8b41a"],
+
+Cell[BoxData[
+ RowBox[{"1", "+", 
+  FractionBox["x", 
+   RowBox[{"4", " ", "\[Pi]"}]], "-", 
+  FractionBox[
+   RowBox[{"27", " ", 
+    SuperscriptBox["x", "2"]}], 
+   RowBox[{"2", " ", 
+    SuperscriptBox["\[Pi]", "2"]}]], "+", 
+  FractionBox[
+   RowBox[{"18", " ", 
+    SuperscriptBox["x", "3"]}], 
+   SuperscriptBox["\[Pi]", "3"]]}]], "Output",ExpressionUUID->"7884b8b3-eba2-\
+da4d-b9b2-82eadc9f6670"],
+
+Cell["\<\
+3. \:0421\:0442\:0440\:043e\:0438\:043c \:0438\:043d\:0442\:0435\:0440\:043f\
+\:043e\:043b\:044f\:0446\:0438\:043e\:043d\:043d\:044b\:0439 \:043c\:043d\
+\:043e\:0433\:043e\:0447\:043b\:0435\:043d \:0432 \:0444\:043e\:0440\:043c\
+\:0435 \:041d\:044c\:044e\:0442\:043e\:043d\:0430;
+H[x_] = f[Subscript[x, 0]] + Sum[Sum[f[Subscript[x, \
+k]]/((Product[(Subscript[x, k] - Subscript[x, i]), {i, 0, k - \
+1}])*(Product[(Subscript[x, k] - Subscript[x, i]), {i, k + 1, j}])), {k, 0, \
+j}]*Product[(x - Subscript[x, m]), {m, 0, j - 1}], {j, 1, n}] // Expand\
+\>", "Input",ExpressionUUID->"963a7f6a-344f-f747-ae5b-8bc85b840b93"],
+
+Cell[BoxData[
+ RowBox[{"1", "+", 
+  FractionBox["x", 
+   RowBox[{"4", " ", "\[Pi]"}]], "-", 
+  FractionBox[
+   RowBox[{"27", " ", 
+    SuperscriptBox["x", "2"]}], 
+   RowBox[{"2", " ", 
+    SuperscriptBox["\[Pi]", "2"]}]], "+", 
+  FractionBox[
+   RowBox[{"18", " ", 
+    SuperscriptBox["x", "3"]}], 
+   SuperscriptBox["\[Pi]", "3"]]}]], "Output",ExpressionUUID->"93c9e28f-04d1-\
+b741-bcc7-d9e988f80455"],
+
+Cell["\<\
+4. \:041a\:043e\:043d\:0442\:0440\:043e\:043b\:044c\:043d\:044b\:0439 \:043c\
+\:043d\:043e\:0433\:043e\:0447\:043b\:0435\:043d InterpolatingPolynomial;
+Tbl = Table[{Subscript[x, i], f[Subscript[x, i]]}, {i, 0, n}];
+P1[x_] = InterpolatingPolynomial[Tbl, x] // Expand\
+\>", "Input",ExpressionUUID->"94946ab8-b7ff-6a46-84a4-d9b62114d088"],
+
+Cell[BoxData[
+ RowBox[{"1", "+", 
+  FractionBox["x", 
+   RowBox[{"4", " ", "\[Pi]"}]], "-", 
+  FractionBox[
+   RowBox[{"27", " ", 
+    SuperscriptBox["x", "2"]}], 
+   RowBox[{"2", " ", 
+    SuperscriptBox["\[Pi]", "2"]}]], "+", 
+  FractionBox[
+   RowBox[{"18", " ", 
+    SuperscriptBox["x", "3"]}], 
+   SuperscriptBox["\[Pi]", "3"]]}]], "Output",ExpressionUUID->"70b81f24-d664-\
+5649-87d1-c386bb9d4475"],
+
+Cell["\<\
+5. \:0421\:0440\:0430\:0432\:043d\:0438\:0432\:0430\:0435\:043c \:0432\:0441\
+\:0435 \:043f\:043e\:043b\:0443\:0447\:0435\:043d\:043d\:044b\:0435 \:0438\
+\:043d\:0442\:0435\:0440\:043f\:043e\:043b\:044f\:0446\:0438\:043e\:043d\:043d\
+\:044b\:0435 \:043c\:043d\:043e\:0433\:043e\:0447\:043b\:0435\:043d\:044b;
+P[x] == H[x] == P1[x]\
+\>", "Input",ExpressionUUID->"982863d9-4400-ec43-9af2-2c902ec6829a"],
+
+Cell[BoxData["True"], "Output",ExpressionUUID->"d3d50924-3fc0-534a-8456-61a9512a8901"],
+
+Cell["\<\
+6. \:041f\:0440\:043e\:0432\:0435\:0440\:044f\:0435\:043c \:0441\:0432\:043e\
+\:0439\:0441\:0442\:0432\:043e \:0438\:043d\:0432\:0430\:0440\:0438\:0430\
+\:043d\:0442\:043d\:043e\:0441\:0442\:0438 \:0444\:043e\:0440\:043c\:0443\
+\:043b\:044b \:041b\:0430\:0433\:0440\:0430\:043d\:0436\:0430;
+Unprotect[Power]; 0^0 := 1;
+Table[x^j === (Sum[Subscript[l, k][x]*Subscript[x, k]^j, {k, 0, n}] // \
+Expand), {j, 0, n}]
+x^(n + 1) === (Sum[Subscript[l, k][x]*Subscript[x, k]^(n + 1), {k, 0, n}] // \
+Expand)\
+\>", "Input",ExpressionUUID->"39331adb-3959-6d49-b261-e8b9af4d242a"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"True", ",", "True", ",", "True", ",", "True", ",", "True"}], 
+  "}"}]], "Output",ExpressionUUID->"9514d5c0-782f-5d4c-8d2e-8697a69fd5e9"],
+
+Cell[BoxData["False"], "Output",ExpressionUUID->"5cc836a6-2a03-fa47-b2f6-1431692aa1e6"],
+
+Cell["\<\
+7. \:041d\:0430\:0445\:043e\:0434\:0438\:043c \:043f\:0440\:0438\:0431\:043b\
+\:0438\:0436\:0435\:043d\:043d\:043e\:0435 \:0437\:043d\:0430\:0447\:0435\
+\:043d\:0438\:0435 \:0444\:0443\:043d\:043a\:0446\:0438\:0438 \:0432 \:0443\
+\:043a\:0430\:0437\:0430\:043d\:043d\:043e\:0439 \:0442\:043e\:0447\:043a\
+\:0435;
+Subscript[x, n + 1] = Pi/9;
+P[Subscript[x, n + 1]]\
+\>", "Input",ExpressionUUID->"7c92fc64-5af5-3841-878e-4addf2ea48e0"],
+
+Cell[BoxData[
+ FractionBox["287", "324"]], "Output",ExpressionUUID->"311574e8-baa3-6348-bbf0-fc604760ba7f"],
+
+Cell["\<\
+8. \:0412\:044b\:0447\:0438\:0441\:043b\:044f\:0435\:043c \:043f\:043e\:0433\
+\:0440\:0435\:0448\:043d\:043e\:0441\:0442\:044c \:0434\:0432\:0443\:043c\
+\:044f \:0441\:043f\:043e\:0441\:043e\:0431\:0430\:043c\:0438;
+R1 = f[Subscript[x, n + 1]] - P[Subscript[x, n + 1]]
+R2 = Sum[f[Subscript[x, k]]/((Product[(Subscript[x, k] - Subscript[x, i]), \
+{i, 0, k - 1}])*(Product[(Subscript[x, k] - Subscript[x, i]), {i, k + 1, n + \
+1}])), {k, 0, n + 1}]*Product[(Subscript[x, n + 1] - Subscript[x, j]), {j, 0, \
+n}] // Expand
+R1 == R2\
+\>", "Input",ExpressionUUID->"708b3cf1-db92-2945-8ed4-1c37d64fcbd0"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"-", 
+   FractionBox["287", "324"]}], "+", 
+  SuperscriptBox[
+   RowBox[{"Cos", "[", 
+    FractionBox["\[Pi]", "9"], "]"}], "2"]}]], "Output",ExpressionUUID->\
+"6012f04a-433c-5548-a941-163b202bb8c5"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"-", 
+   FractionBox["287", "324"]}], "+", 
+  SuperscriptBox[
+   RowBox[{"Cos", "[", 
+    FractionBox["\[Pi]", "9"], "]"}], "2"]}]], "Output",ExpressionUUID->\
+"b4f273a5-49d6-9a4d-b224-b4b21510731c"],
+
+Cell[BoxData["True"], "Output",ExpressionUUID->"1266d23b-beb7-cb4d-8fb3-230e24262783"],
+
+Cell["Clear[f, P, H, P1, x, n];", "Input",ExpressionUUID->"50add20c-edee-ba42-8556-99e4fbfbf703"],
+
+Cell["\:0417\:0430\:0434\:0430\:043d\:0438\:0435 2", "Text",ExpressionUUID->"d5c5a3da-348e-144d-8b1d-8b065d7d21c1"],
+
+Cell["\<\
+1. \:0417\:0430\:0434\:0430\:0435\:043c \:043d\:0430\:0447\:0430\:043b\:044c\
+\:043d\:044b\:0435 \:0434\:0430\:043d\:043d\:044b\:0435;
+f[x_] = Sum[k^4, {k, 1, x}] // Expand\
+\>", "Input",ExpressionUUID->"539613a9-1be5-d74b-bdc4-8d817e8d8b2f"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"-", 
+   FractionBox["x", "30"]}], "+", 
+  FractionBox[
+   SuperscriptBox["x", "3"], "3"], "+", 
+  FractionBox[
+   SuperscriptBox["x", "4"], "2"], "+", 
+  FractionBox[
+   SuperscriptBox["x", "5"], "5"]}]], "Output",ExpressionUUID->"ce90929c-bc74-\
+1149-97df-de7deb5d6337"],
+
+Cell["\<\
+2. \:041d\:0430\:0445\:043e\:0434\:0438\:043c \:043d\:0435\:043e\:0431\:0445\
+\:043e\:0434\:0438\:043c\:043e\:0435 \:0447\:0438\:0441\:043b\:043e \:0443\
+\:0437\:043b\:043e\:0432;
+Subscript[x, 0] = 1; Subscript[x, 1] = 2; Subscript[f, 0] = f[Subscript[x, \
+0]]; Subscript[f, 1] = f[Subscript[x, 1]];
+k = 1;
+While[(Subscript[r, k] = Sum[Subscript[f, j]/((Product[(Subscript[x, j] - \
+Subscript[x, i]), {i, 0, j - 1}])*(Product[(Subscript[x, j] - Subscript[x, \
+i]), {i, j + 1, k}])), {j, 0, k}]) != 0, {k = k + 1, Subscript[x, k] = k + 1, \
+Subscript[f, k] = f[Subscript[x, k]]}];
+k\
+\>", "Input",ExpressionUUID->"a45fc549-d134-4245-92ef-b96f05a57f7f"],
+
+Cell[BoxData["6"], "Output",ExpressionUUID->"db493e5c-80fe-0a45-9fc5-2a67b3c43de1"],
+
+Cell["\<\
+3. \:0421\:0442\:0440\:043e\:0438\:043c \:0438\:043d\:0442\:0435\:0440\:043f\
+\:043e\:043b\:044f\:0446\:0438\:043e\:043d\:043d\:044b\:0439 \:043c\:043d\
+\:043e\:0433\:043e\:0447\:043b\:0435\:043d \:041d\:044c\:044e\:0442\:043e\
+\:043d\:0430;
+n = k - 1;
+P[x_] = Subscript[f, 0] + Sum[Subscript[r, m]*Product[(x - Subscript[x, i]), \
+{i, 0, m - 1}], {m, 1, n}] // Expand\
+\>", "Input",ExpressionUUID->"56c48f55-9d0f-6e43-b544-e4f3a1cdbdff"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"-", 
+   FractionBox["x", "30"]}], "+", 
+  FractionBox[
+   SuperscriptBox["x", "3"], "3"], "+", 
+  FractionBox[
+   SuperscriptBox["x", "4"], "2"], "+", 
+  FractionBox[
+   SuperscriptBox["x", "5"], "5"]}]], "Output",ExpressionUUID->"78166d1c-8751-\
+804e-872c-12791a2e2db2"],
+
+Cell["\<\
+4. \:0421\:0440\:0430\:0432\:043d\:0438\:0432\:0430\:0435\:043c \:043f\:043e\
+\:0441\:0442\:0440\:043e\:0435\:043d\:043d\:044b\:0439 \:043f\:043e\:043b\
+\:0438\:043d\:043e\:043c \:0441 \:0442\:043e\:0447\:043d\:043e\:0439 \:0441\
+\:0443\:043c\:043c\:043e\:0439 \:0440\:044f\:0434\:0430;
+P[x] == f[x]\
+\>", "Input",ExpressionUUID->"45890d7e-9ca4-8140-aa59-2c1059679567"],
+
+Cell[BoxData["True"], "Output",ExpressionUUID->"d6bc1b6a-010b-b74c-8e61-ae5f6eb8bc19"],
+
+Cell["\<\
+5. \:041d\:0430\:0445\:043e\:0434\:0438\:043c \:0437\:043d\:0430\:0447\:0435\
+\:043d\:0438\:0435 \:0440\:044f\:0434\:0430 \:0432 \:0443\:043a\:0430\:0437\
+\:0430\:043d\:043d\:043e\:0439 \:0442\:043e\:0447\:043a\:0435;
+t = 16;
+P[t]
+Print[\"\:041e\:0442\:0432\:0435\:0442: f(16) = \", P[t]]\
+\>", "Input",ExpressionUUID->"388acc05-0c27-1341-b433-533dc65e45f0"],
+
+Cell[BoxData[
+ TemplateBox[{"\"\:041e\:0442\:0432\:0435\:0442: f(16) = \"", "243848"},
+  "RowDefault"]], "Print",ExpressionUUID->"44440aaf-ba3b-2c49-8182-\
+f6b546864cad"],
+
+Cell[BoxData["243848"], "Output",ExpressionUUID->"f8139e07-cd28-e741-9292-1abf73e7580a"]
+},
+WindowSize->{1152, 688.5},
+FrontEndVersion->"14.2 for Microsoft Windows (64-bit) (March 14, 2025)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"3387a153-f142-5b40-95d8-d510616496a6"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[554, 20, 117, 0, 70, "Input",ExpressionUUID->"da821033-b415-9842-b24a-b0372756914e"],
+Cell[674, 22, 115, 0, 70, "Text",ExpressionUUID->"5f4ea908-a13d-fc47-a84c-1e6cda6d2e6d"],
+Cell[792, 24, 265, 5, 70, "Input",ExpressionUUID->"c23e4ea0-6c38-9c4a-be9e-33d0838d3415"],
+Cell[1060, 31, 707, 11, 70, "Input",ExpressionUUID->"cf2edde8-c34b-f743-81f5-1529f7b8b41a"],
+Cell[1770, 44, 403, 13, 70, "Output",ExpressionUUID->"7884b8b3-eba2-da4d-b9b2-82eadc9f6670"],
+Cell[2176, 59, 627, 9, 70, "Input",ExpressionUUID->"963a7f6a-344f-f747-ae5b-8bc85b840b93"],
+Cell[2806, 70, 403, 13, 70, "Output",ExpressionUUID->"93c9e28f-04d1-b741-bcc7-d9e988f80455"],
+Cell[3212, 85, 345, 5, 70, "Input",ExpressionUUID->"94946ab8-b7ff-6a46-84a4-d9b62114d088"],
+Cell[3560, 92, 403, 13, 70, "Output",ExpressionUUID->"70b81f24-d664-5649-87d1-c386bb9d4475"],
+Cell[3966, 107, 410, 6, 70, "Input",ExpressionUUID->"982863d9-4400-ec43-9af2-2c902ec6829a"],
+Cell[4379, 115, 86, 0, 70, "Output",ExpressionUUID->"d3d50924-3fc0-534a-8456-61a9512a8901"],
+Cell[4468, 117, 578, 10, 70, "Input",ExpressionUUID->"39331adb-3959-6d49-b261-e8b9af4d242a"],
+Cell[5049, 129, 176, 3, 70, "Output",ExpressionUUID->"9514d5c0-782f-5d4c-8d2e-8697a69fd5e9"],
+Cell[5228, 134, 87, 0, 70, "Output",ExpressionUUID->"5cc836a6-2a03-fa47-b2f6-1431692aa1e6"],
+Cell[5318, 136, 443, 8, 70, "Input",ExpressionUUID->"7c92fc64-5af5-3841-878e-4addf2ea48e0"],
+Cell[5764, 146, 107, 1, 70, "Output",ExpressionUUID->"311574e8-baa3-6348-bbf0-fc604760ba7f"],
+Cell[5874, 149, 607, 10, 70, "Input",ExpressionUUID->"708b3cf1-db92-2945-8ed4-1c37d64fcbd0"],
+Cell[6484, 161, 233, 7, 70, "Output",ExpressionUUID->"6012f04a-433c-5548-a941-163b202bb8c5"],
+Cell[6720, 170, 233, 7, 70, "Output",ExpressionUUID->"b4f273a5-49d6-9a4d-b224-b4b21510731c"],
+Cell[6956, 179, 86, 0, 70, "Output",ExpressionUUID->"1266d23b-beb7-cb4d-8fb3-230e24262783"],
+Cell[7045, 181, 97, 0, 70, "Input",ExpressionUUID->"50add20c-edee-ba42-8556-99e4fbfbf703"],
+Cell[7145, 183, 115, 0, 70, "Text",ExpressionUUID->"d5c5a3da-348e-144d-8b1d-8b065d7d21c1"],
+Cell[7263, 185, 252, 4, 70, "Input",ExpressionUUID->"539613a9-1be5-d74b-bdc4-8d817e8d8b2f"],
+Cell[7518, 191, 306, 10, 70, "Output",ExpressionUUID->"ce90929c-bc74-1149-97df-de7deb5d6337"],
+Cell[7827, 203, 661, 12, 70, "Input",ExpressionUUID->"a45fc549-d134-4245-92ef-b96f05a57f7f"],
+Cell[8491, 217, 83, 0, 70, "Output",ExpressionUUID->"db493e5c-80fe-0a45-9fc5-2a67b3c43de1"],
+Cell[8577, 219, 448, 8, 70, "Input",ExpressionUUID->"56c48f55-9d0f-6e43-b544-e4f3a1cdbdff"],
+Cell[9028, 229, 306, 10, 70, "Output",ExpressionUUID->"78166d1c-8751-804e-872c-12791a2e2db2"],
+Cell[9337, 241, 379, 6, 70, "Input",ExpressionUUID->"45890d7e-9ca4-8140-aa59-2c1059679567"],
+Cell[9719, 249, 86, 0, 70, "Output",ExpressionUUID->"d6bc1b6a-010b-b74c-8e61-ae5f6eb8bc19"],
+Cell[9808, 251, 368, 7, 70, "Input",ExpressionUUID->"388acc05-0c27-1341-b433-533dc65e45f0"],
+Cell[10179, 260, 170, 3, 70, "Print",ExpressionUUID->"44440aaf-ba3b-2c49-8182-f6b546864cad"],
+Cell[10352, 265, 88, 0, 70, "Output",ExpressionUUID->"f8139e07-cd28-e741-9292-1abf73e7580a"]
+}
+]
+*)
+
+(* End of internal cache information *)
