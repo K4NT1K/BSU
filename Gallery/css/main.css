@@ -1,0 +1,153 @@
+* {
+    box-sizing: border-box;
+    margin: 0 auto;
+    max-width: 1400px;
+}
+
+body {
+    background: #fff1e9;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.container {
+    max-width: 1400px;
+    width: 98%;
+    background-color: #fff1e9;
+}
+
+header {
+    background: linear-gradient(135deg, #221916 0%, #3a2a25 100%);
+    border-radius: 5px;
+    font-family: "Bookman Old Style";
+    font-size: 25px;
+    text-align: center;
+    text-shadow: 1px 1px 5px #808080;
+    color: #fff1e9;
+    padding: 18px;
+    border-bottom: #000 solid 3px;
+    margin: 0 auto;
+    max-width: 1400px;
+    width: 95%;
+}
+
+main {
+    width: 100%;
+}
+
+.gallery {
+    width: 90%;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+h2 {
+    font-family: "Bookman Old Style";
+    font-weight: 500;
+    margin-bottom: 10px;
+    font-size: 28px;
+    color: #221916;
+}
+
+a {
+    text-decoration: none;
+}
+
+p {
+    font-family: "Bookman Old Style";
+    font-size: 17px;
+}
+
+.text {
+    font-family: "Bookman Old Style";
+    font-size: 10px;
+    width: auto;
+    color: #221916;
+    overflow: hidden;
+    padding: 0 18px;
+    margin-top: 5px;
+}
+
+.paint_left, .paint_right {
+    float: left;
+    width: 49%;
+    height: 100%;
+    overflow: hidden;
+    transition: 0.3s;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px 0.5% 20px;
+}
+
+.paint_left:hover, .paint_right:hover {
+    transform: translateY(-2px);
+    background-color: rgba(34, 25, 22, 0.1);
+    box-shadow: 0 4px 8px rgba(67, 67, 67, 0.5);
+}
+
+.paint_left:hover .text h2,
+.paint_right:hover .text h2 {
+    color: #5c2a2a;
+    text-shadow: 0 2px 4px rgba(92, 42, 42, 0.2);
+}
+
+img {
+    box-shadow: 8px 4px 10px 5px rgba(67, 67, 67, 0.5);
+    width: 100%;
+    margin: 0 auto 20px;
+}
+
+.cont_img {
+    float: left;
+    max-width: 250px;
+    width: 50%;
+    margin: 10px 5px auto;
+    transition: 0.6s;
+}
+
+.cont_img:hover {
+    transform: scale(1.05) rotate(1deg);
+}
+
+footer {
+    font-family: "Bookman Old Style";
+    text-align: center;
+    color: #fff1e9;
+    background: linear-gradient(135deg, #221916 0%, #3a2a25 100%);
+    overflow: hidden;
+    border-top: #000 solid 3px;
+    border-radius: 5px;
+    text-shadow: 1px 1px 3px rgb(67, 67, 67);
+    padding: 12px;
+    clear: both;
+    margin: 0 auto;
+    max-width: 1400px;
+    width: 95%;
+}
+
+footer p {
+    font-size: 16px;
+    padding: 5px;
+}
+
+.back-to-top, .email, .phone, .address {
+    background-color: #fff1e9;
+    font-size: 20px;
+    color: #221916;
+    border: 2px solid #221916;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-family: "Bookman Old Style";
+    transition: 0.4s;
+    display: inline-block;
+    margin: 10px 5px 10px;
+}
+
+.back-to-top:hover, .email:hover, .phone:hover, .address:hover {
+    border-color: #fff1e9;
+    transform: scale(1.07);
+}
+
+html {
+    scroll-behavior: smooth;
+}

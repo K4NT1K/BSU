@@ -1,0 +1,113 @@
+.cards-panel {
+    background: #101826;
+    border: 1px solid #1f2937;
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.cards-panel .panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.cards-panel h2 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #e2e8f0;
+}
+
+.cards-panel .ghost {
+    background: transparent;
+    color: #cbd5f5;
+    border: 1px solid #2e3a4f;
+    border-radius: 999px;
+    padding: 6px 14px;
+    cursor: pointer;
+}
+
+.cards-table {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.cards-table .empty {
+    margin: 0;
+    color: #94a3b8;
+}
+
+.card-row {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 16px;
+    align-items: center;
+    padding: 14px;
+    border-radius: 12px;
+    background: #0b1220;
+    border: 1px solid #1f2937;
+}
+
+.card-row.learned {
+    border-color: #22c55e;
+}
+
+.card-text {
+    display: grid;
+    gap: 6px;
+}
+
+.card-text .front {
+    margin: 0;
+    color: #e2e8f0;
+    font-weight: 600;
+}
+
+.card-text .back {
+    margin: 0;
+    color: #94a3b8;
+}
+
+.learned-toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #cbd5f5;
+}
+
+.row-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.row-actions button {
+    border-radius: 999px;
+    border: none;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.row-actions .ghost {
+    background: transparent;
+    color: #cbd5f5;
+    border: 1px solid #2e3a4f;
+}
+
+.row-actions .danger {
+    background: #ef4444;
+    color: #fff;
+}
+
+@media (max-width: 900px) {
+    .card-row {
+        grid-template-columns: 1fr;
+        align-items: flex-start;
+    }
+}
+

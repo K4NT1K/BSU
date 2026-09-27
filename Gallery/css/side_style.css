@@ -1,0 +1,165 @@
+* {
+    box-sizing: border-box;
+    margin: 0 auto;
+    max-width: 1400px;
+}
+
+body {
+    background: #fff1e9;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.container {
+    max-width: 1400px;
+    width: 100%;
+    background-color: #fff1e9;
+    overflow: hidden;
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: 100px;
+}
+
+header {
+    background: linear-gradient(135deg, #221916 0%, #3a2a25 100%);
+    border-radius: 5px;
+    font-family: "Bookman Old Style";
+    font-size: 25px;
+    text-align: center;
+    text-shadow: 1px 1px 5px #808080;
+    color: #fff1e9;
+    padding: 18px;
+    border-bottom: #000 solid 3px;
+    margin: 0 auto;
+    max-width: 1400px;
+    width: 95%;
+    transition: 0.5s;
+}
+
+header:hover {
+    transform: scale(1.05);
+}
+
+h1, h1:hover {
+    color: #fff1e9;
+}
+
+main {
+    width: 100%;
+    overflow: hidden;
+    padding: 0 50px 30px;
+    position: relative;
+}
+
+h2 {
+    font-family: "Bookman Old Style";
+    font-weight: 500;
+    margin-bottom: 10px;
+    font-size: 35px;
+    color: #221916;
+}
+
+a {
+    text-decoration: none;
+}
+
+p {
+    font-family: "Bookman Old Style";
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.text {
+    font-family: "Bookman Old Style";
+    font-size: 10px;
+    width: auto;
+    color: #221916;
+    overflow: visible;
+    padding: 20px;
+    margin: 5px 30px auto 30px;
+}
+
+img {
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+}
+
+.cont_img {
+    box-shadow:5px 5px 10px 5px rgba(67, 67, 67, 0.5);
+    border: 6px #3a2a25 solid;
+    float: left;
+    max-width: 450px;
+    width: 100%;
+    margin: 30px 50px 20px;
+}
+
+.arrow_left {
+    position: absolute;
+    width: 100px;
+    left: -10px;
+    top: calc(50%);
+    transform: translateY(-50%);
+}
+
+.arrow_right {
+    position: absolute;
+    width: 100px;
+    right: 0;
+    top: calc(50%);
+    transform: translateY(-50%);
+}
+
+.arrow_left img, .arrow_right img {
+    width: 100%;
+    transition: transform 0.3s;
+}
+
+.arrow_left:hover img, .arrow_right:hover img {
+    transform: scale(1.2);
+}
+
+footer {
+    font-family: "Bookman Old Style";
+    text-align: center;
+    color: #fff1e9;
+    background: linear-gradient(135deg, #221916 0%, #3a2a25 100%);
+    overflow: hidden;
+    border-top: #000 solid 3px;
+    border-radius: 5px;
+    text-shadow: 1px 1px 3px rgb(67, 67, 67);
+    padding: 12px;
+    position: absolute;
+    bottom: 0;
+    margin: 20px auto -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    clear: both;
+    max-width: 1400px;
+    width: 95%;
+}
+
+footer p {
+    font-size: 16px;
+    padding: 12px;
+}
+
+.home-page, .email, .phone, .address {
+    background-color: #fff1e9;
+    font-size: 20px;
+    color: #221916;
+    border: 2px solid #221916;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-family: "Bookman Old Style";
+    transition: 0.4s;
+    display: inline-block;
+    margin: 10px 5px 10px;
+}
+
+.home-page:hover, .email:hover, .phone:hover, .address:hover {
+    border-color: #fff1e9;
+    transform: scale(1.07);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}

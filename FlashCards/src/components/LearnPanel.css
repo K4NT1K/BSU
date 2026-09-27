@@ -1,0 +1,67 @@
+.learn-panel {
+    background: #101826;
+    border: 1px solid #1f2937;
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.learn-panel .panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.learn-panel .mode-switch {
+    display: flex;
+    gap: 12px;
+    color: #cbd5f5;
+}
+
+.learn-panel .mode-switch label {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.learn-panel .ghost {
+    background: transparent;
+    color: #cbd5f5;
+    border: 1px solid #2e3a4f;
+    border-radius: 999px;
+    padding: 6px 14px;
+    cursor: pointer;
+}
+
+.status {
+    color: #cbd5f5;
+    background: #0b1220;
+    border: 1px dashed #2e3a4f;
+    border-radius: 12px;
+    padding: 12px;
+}
+
+.status.error {
+    border-color: #f97316;
+    color: #fdba74;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.status.error button {
+    background: #f97316;
+    border: none;
+    color: #1f2937;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-weight: 600;
+}
+

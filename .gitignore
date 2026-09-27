@@ -1,20 +1,20 @@
-# IDE
-.idea/
+# Ignore everything except published coursework folders
+/*
+!/.gitignore
+!/README.md
+!/README.ru.md
+!/ToDoList/
+!/FlashCards/
+!/SimonsSays/
+!/Feed/
+!/Colors/
+!/Gallery/
+!/VideoAudio/
 
-# OS
-.DS_Store
-Thumbs.db
-
-# Local projects to exclude
-html/
-LeetCode/
-
-# Misc
-.clang-format
-
-# Node
-node_modules/
-
-# Logs
-*.log
-
+# Keep nested junk out of published trees
+**/node_modules/
+**/dist/
+**/.idea/
+**/.DS_Store
+**/Thumbs.db
+**/*.log
